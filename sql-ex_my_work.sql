@@ -101,6 +101,12 @@ where Product.maker not in (select distinct Product.maker
 from Product inner join Laptop
 on Product.model = Laptop.model);
 
+select maker from product
+where type = 'pc'
+except
+select maker from product
+where type = 'laptop';
+
 /*
 Задание: 9 (Serge I: 2002-11-02)
 Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker
