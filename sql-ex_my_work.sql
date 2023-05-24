@@ -144,18 +144,10 @@ where price > 1000
 Задание: 13 (Serge I: 2002-11-02)
 Найдите среднюю скорость ПК, выпущенных производителем A.
 */
-
 select avg(speed) as Avg_speed from pc
-where speed in (select speed from PC inner join product
+inner join product
 on pc.model = product.model
-where product.maker = 'A')
-
-SELECT AVG(speed) AS avg_speed 
-FROM PC
-WHERE speed IN (SELECT speed 
-                FROM PC, Product 
-                WHERE product.model = PC.model AND 
-                      maker='A')
+where maker = 'A'
 
 /*
 Задание: 14 (Serge I: 2002-11-05)
